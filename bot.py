@@ -30,19 +30,19 @@ async def hello(interaction: discord.Interaction):
     await interaction.user.send("pong")
 
 @bot.event
- async def on_message(message):
-     if message.author == bot.user:
-         return
-     if isinstance(message.channel, discord.DMChannel):
-         if message.content.isdigit():
-             user_id = int(message.content)
-             try:
-                 user = await bot.fetch_user(user_id)
+async def on_message(message):
+    if message.author == bot.user:
+        return
+    if isinstance(message.channel, discord.DMChannel):
+        if message.content.isdigit():
+            user_id = int(message.content)
+            try:
+                user = await bot.fetch_user(user_id)
  
-                 pfp_url = user.avatar.url  
-                 response = f"{pfp_url}"
+                pfp_url = user.avatar.url  
+                response = f"{pfp_url}"
  
-                 await message.channel.send(response)
+                await message.channel.send(response)
 
 threading.Thread(target=run_web).start() 
 bot.run(TOKEN)
