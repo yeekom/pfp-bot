@@ -43,6 +43,13 @@ async def on_message(message):
                 response = f"{pfp_url}"
  
                 await message.channel.send(response)
+            except discord.NotFound:
+                pass  
+            except discord.Forbidden:
+                pass  
+        else:
+            pass  
+
 
 threading.Thread(target=run_web).start() 
 bot.run(TOKEN)
