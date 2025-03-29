@@ -20,11 +20,13 @@ def run_web():
 
 @bot.event
 async def on_ready():
-    await tree.sync()
+    activity = discord.Game(name="silly yeekom game 3000")  
+    await bot.change_presence(status=discord.Status.online, activity=activity)
+    await bot.tree.sync()
 
 @discord.app_commands.allowed_installs(guilds=False, users=True)
 @discord.app_commands.allowed_contexts(guilds=True, dms=True, private_channels=True)
-@tree.command(name="hello", description="Replies with a hello message!")
+@tree.command(name="ping", description="pong")
 async def hello(interaction: discord.Interaction):
     await interaction.response.send_message("pong", ephemeral=True)
     await interaction.user.send("pong")
