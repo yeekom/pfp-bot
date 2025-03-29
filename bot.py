@@ -22,7 +22,7 @@ def run_web():
 async def on_ready():
     activity = discord.Game(name="silly yeekom game 3000")  
     await bot.change_presence(status=discord.Status.online, activity=activity)
-    await bot.tree.sync()
+    await tree.sync()
 
 @discord.app_commands.allowed_installs(guilds=False, users=True)
 @discord.app_commands.allowed_contexts(guilds=True, dms=True, private_channels=True)
